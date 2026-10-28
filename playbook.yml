@@ -1,0 +1,25 @@
+- name: Deploy Production Portfolio Server
+  hosts: webserver
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Ensure Docker is started
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Run Web App Container on Port 80
+      shell: |
+        docker stop portfolio-app || true
+        docker rm portfolio-app || true
+        docker run -d --name portfolio-app --restart always -p 80:80 nginx:alpine

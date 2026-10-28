@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIGIL-OS // Gateway Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { background-color: #030712; color: #f3f4f6; font-family: monospace; }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+  <div class="w-full max-w-md bg-gray-900 border border-teal-500/30 rounded-xl p-8 shadow-2xl shadow-teal-500/10">
+    <div class="text-center mb-6">
+      <div class="inline-block p-3 rounded-full bg-teal-500/10 border border-teal-500/40 text-teal-400 mb-3 text-2xl">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+      <h1 class="text-xl font-bold tracking-widest text-teal-400">CORE AUTHENTICATION</h1>
+      <p class="text-xs text-gray-400 mt-1">Multi-Factor Access Gateway</p>
+    </div>
+
+    <!-- Google OAuth 2.0 Button -->
+    <a href="/auth/google" class="w-full flex items-center justify-center gap-3 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-white py-3 rounded-lg text-sm font-semibold transition duration-200 mb-6">
+      <i class="fa-brands fa-google text-red-400"></i> Continue with Google ID
+    </a>
+
+    <div class="relative flex py-2 items-center mb-6">
+      <div class="flex-grow border-t border-gray-800"></div>
+      <span class="flex-shrink mx-4 text-xs text-gray-500 uppercase tracking-widest">Or Secure Login</span>
+      <div class="flex-grow border-t border-gray-800"></div>
+    </div>
+
+    <!-- Standard Login Form -->
+    <form action="/login" method="POST" class="space-y-4">
+      <div>
+        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Operator ID / Email</label>
+        <input type="text" name="username" required placeholder="operator@vigil-core.net" class="w-full bg-black/60 border border-gray-800 focus:border-teal-500 rounded px-4 py-2.5 text-sm outline-none transition">
+      </div>
+      <div>
+        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Password</label>
+        <input type="password" name="password" required placeholder="••••••••••••" class="w-full bg-black/60 border border-gray-800 focus:border-teal-500 rounded px-4 py-2.5 text-sm outline-none transition">
+      </div>
+      <button type="submit" class="w-full bg-teal-600 hover:bg-teal-500 text-black font-bold py-2.5 rounded transition tracking-wider text-sm">
+        AUTHENTICATE →
+      </button>
+    </form>
+    
+    <div class="mt-6 text-center">
+      <a href="/" class="text-xs text-gray-500 hover:text-teal-400 transition">← Return to Public Portfolio</a>
+    </div>
+  </div>
+</body>
+</html>
